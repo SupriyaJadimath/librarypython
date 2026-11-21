@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Issued Books</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f1fa;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #4b267d;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 25px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #4b267d;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2edf8;
+        }
+
+        .returned {
+            color: green;
+            font-weight: bold;
+        }
+
+        .pending {
+            color: red;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4b267d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Issued Books</h1>
+
+    <table>
+        <tr>
+            <th>Book Name</th>
+            <th>Member Name</th>
+            <th>Issue Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for issue in issued_books %}
+        <tr>
+            <td>{{ issue.book.book_name }}</td>
+            <td>{{ issue.member.name }}</td>
+            <td>{{ issue.issue_date }}</td>
+
+            <td>
+                {% if issue.is_returned %}
+                    <span class="returned">Returned</span>
+                {% else %}
+                    <span class="pending">Not Returned</span>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="4">No books have been issued yet.</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

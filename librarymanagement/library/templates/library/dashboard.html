@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f1fa;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b267d;
+            padding: 25px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #ddd;
+        }
+
+        h2 {
+            color: #4b267d;
+        }
+
+        .number {
+            font-size: 35px;
+            font-weight: bold;
+            color: #7b42bd;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 40px;
+            color: #4b267d;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📚 Library Dashboard</h1>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>Total Books</h2>
+            <p class="number">{{ total_books }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Quantity</h2>
+            <p class="number">{{ total_quantity }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Available Titles</h2>
+            <p class="number">{{ available_books }}</p>
+        </div>
+
+    </div>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

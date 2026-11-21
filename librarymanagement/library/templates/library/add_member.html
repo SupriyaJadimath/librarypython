@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Member</title>
+</head>
+<body style="background:#f4f1fa; font-family:Arial;">
+
+<div style="width:400px; margin:50px auto; background:white;
+padding:25px; border-radius:10px;">
+
+    <h2 style="color:#4b267d; text-align:center;">
+        Register Member
+    </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name"
+        placeholder="Member Name" required><br><br>
+
+        <input type="email" name="email"
+        placeholder="Email" required><br><br>
+
+        <input type="text" name="phone"
+        placeholder="Phone Number" required><br><br>
+
+        <textarea name="address"
+        placeholder="Address" required></textarea><br><br>
+
+        <button type="submit">Register Member</button>
+    </form>
+
+</div>
+</body>
+</html>

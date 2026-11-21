@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Member</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f1fa;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b267d;
+        }
+
+        form {
+            background: white;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4b267d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Edit Member</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name"
+               value="{{ member.name }}" required>
+
+        <input type="email" name="email"
+               value="{{ member.email }}" required>
+
+        <input type="text" name="phone"
+               value="{{ member.phone }}" required>
+
+        <textarea name="address" required>{{ member.address }}</textarea>
+
+        <button type="submit">Update Member</button>
+    </form>
+
+</body>
+</html>

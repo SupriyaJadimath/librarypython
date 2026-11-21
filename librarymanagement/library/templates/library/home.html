@@ -1,0 +1,320 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="{% static 'library/style.css' %}">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f1fa;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #321653, #7042a0);
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(50, 22, 83, 0.2);
+        }
+
+        nav h2 {
+            font-size: 23px;
+            letter-spacing: 0.5px;
+        }
+
+       
+        .nav-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-login,
+.nav-logout {
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-login {
+    background: white;
+    color: #4b267d;
+}
+
+.nav-logout {
+    background: #e9ddff;
+    color: #4b267d;
+}
+
+.nav-login:hover,
+.nav-logout:hover {
+    background: #d5c2f5;
+}
+
+        .nav-login:hover {
+            background: #e9ddff;
+        }
+
+        /* Main container */
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 45px auto;
+        }
+
+        /* Welcome banner */
+        .welcome {
+            background: linear-gradient(120deg, #4b267d, #9162c5);
+            padding: 45px;
+            border-radius: 18px;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(75, 38, 125, 0.2);
+        }
+
+        .welcome h1 {
+            color: white;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            color: #eee5ff;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Section heading */
+        .section-heading {
+            color: #4b267d;
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        /* Cards grid */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 23px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #e5d9f3;
+            box-shadow: 0 4px 15px rgba(60, 35, 90, 0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(75, 38, 125, 0.15);
+            border-color: #a78bca;
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #4b267d;
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #4b267d;
+            color: white;
+            padding: 11px 23px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: #321653;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            color: #777;
+            border-top: 1px solid #e4dbea;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav {
+                padding: 18px;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav h2 {
+                font-size: 18px;
+            }
+
+            .container {
+                width: 92%;
+                margin-top: 25px;
+            }
+
+            .welcome {
+                padding: 28px 22px;
+            }
+
+            .welcome h1 {
+                font-size: 25px;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h2>📚 Library Management System</h2>
+
+       <div class="nav-buttons">
+    <a href="{% url 'custom_login' %}" class="nav-login">Login</a>
+
+    <a href="{% url 'logout' %}" class="nav-logout">Logout</a>
+</div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Welcome Section -->
+        <div class="welcome">
+            <h1>Welcome to Our Library 👋</h1>
+
+            <p>
+                Your complete library management solution.
+                Organize books, manage members and track borrowing
+                activities easily.
+            </p>
+        </div>
+
+
+        <!-- Quick Access -->
+        <h2 class="section-heading">Quick Access</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Add Book</h3>
+                <p>Add new books to your library collection.</p>
+                <a href="{% url 'add_book' %}">Add Book →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>View Books</h3>
+                <p>Explore, search and manage your books.</p>
+                <a href="{% url 'view_books' %}">View Books →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Dashboard</h3>
+                <p>View important library statistics.</p>
+                <a href="{% url 'dashboard' %}">Dashboard →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👤</div>
+                <h3>Add Member</h3>
+                <p>Register new members in your library.</p>
+                <a href="{% url 'add_member' %}">Add Member →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>View Members</h3>
+                <p>View and manage registered members.</p>
+                <a href="{% url 'view_members' %}">View Members →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📤</div>
+                <h3>Issue Book</h3>
+                <p>Issue books to registered library members.</p>
+                <a href="{% url 'issue_book' %}">Issue Book →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📥</div>
+                <h3>Return Book</h3>
+                <p>Record books returned by members.</p>
+                <a href="{% url 'return_book' %}">Return Book →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Issued Books</h3>
+                <p>Check all issued and returned books.</p>
+                <a href="{% url 'view_issued_books' %}">View Records →</a>
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Library Management System | All Rights Reserved
+    </footer>
+
+</body>
+</html>

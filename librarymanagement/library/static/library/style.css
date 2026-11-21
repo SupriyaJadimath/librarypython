@@ -1,0 +1,140 @@
+
+/* ===== GLOBAL DESIGN ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #100d1c;
+    color: #f5f3ff;
+    min-height: 100vh;
+}
+
+/* ===== HEADINGS ===== */
+
+h1, h2, h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* ===== CONTAINERS ===== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+    background: #1d1830;
+    border: 1px solid #34284f;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== INPUTS ===== */
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0 18px;
+    background: #171327;
+    color: white;
+    border: 1px solid #453660;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #a78bfa;
+}
+
+/* ===== BUTTONS ===== */
+
+button, .btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+    background: #9b6bfa;
+    transform: translateY(-2px);
+}
+
+/* ===== TABLES ===== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1d1830;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #352354;
+    color: #ffffff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #34284f;
+}
+
+tr:hover {
+    background: #29213f;
+}
+
+/* ===== LINKS ===== */
+
+a {
+    color: #c4b5fd;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* ===== STATUS ===== */
+
+.returned {
+    color: #4ade80;
+}
+
+.pending {
+    color: #f87171;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 9px;
+    }
+}
